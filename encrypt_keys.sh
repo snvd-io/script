@@ -8,12 +8,12 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
 cd $1
 
-read -p "Enter old key passphrase (empty if none): " -s password
+read -rp "Enter old key passphrase (empty if none): " -s password
 echo
 
-read -p "Enter new key passphrase: " -s new_password
+read -rp "Enter new key passphrase: " -s new_password
 echo
-read -p "Confirm new key passphrase: " -s confirm_new_password
+read -rp "Confirm new key passphrase: " -s confirm_new_password
 echo
 
 if [[ $new_password != $confirm_new_password ]]; then
