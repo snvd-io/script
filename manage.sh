@@ -187,7 +187,6 @@ readonly independent=(
     platform_external_Apps
     platform_external_Auditor
     platform_external_Camera
-    platform_external_curl # using main branch as base
     platform_external_GmsCompatConfig
     platform_external_PdfViewer
     platform_external_seedvault
