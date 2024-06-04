@@ -151,7 +151,6 @@ declare -Ar kernel_tags=(
     # May 2024
     [kernel_build-gs]=android-14.0.0_r0.71
     [kernel_gs]=android-14.0.0_r0.71
-    [kernel_google-modules_gpu-gs]=android-14.0.0_r0.71
     [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.71
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.71
 
