@@ -113,10 +113,12 @@ readonly kernels=(
     kernel_google-modules_power_reset-gs
     kernel_google-modules_wlan_bcmdhd_bcm4389
 
+    kernel_devices_google_akita
     kernel_devices_google_shusky
     kernel_google-modules_power_reset-zuma
     kernel_google-modules_soc_gs
     kernel_google-modules_uwb_qorvo_qm35
+    kernel_google-modules_wlan_bcmdhd_bcm4383
     kernel_google-modules_wlan_bcmdhd_bcm4398
 )
 
@@ -134,10 +136,12 @@ declare -Ar kernel_tags_old=(
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.92
 
     # June 2024
+    [kernel_devices_google_akita]=android-14.0.0_r0.98
     [kernel_devices_google_shusky]=android-14.0.0_r0.98
     [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.98
     [kernel_google-modules_soc_gs]=android-14.0.0_r0.98
     [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.98
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-14.0.0_r0.98
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.98
 )
 
@@ -155,10 +159,12 @@ declare -Ar kernel_tags=(
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.92
 
     # June 2024
+    [kernel_devices_google_akita]=android-14.0.0_r0.98
     [kernel_devices_google_shusky]=android-14.0.0_r0.98
     [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.98
     [kernel_google-modules_soc_gs]=android-14.0.0_r0.98
     [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.98
+    [kernel_google-modules_wlan_bcmdhd_bcm4383]=android-14.0.0_r0.98
     [kernel_google-modules_wlan_bcmdhd_bcm4398]=android-14.0.0_r0.98
 )
 
