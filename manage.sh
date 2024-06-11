@@ -19,6 +19,7 @@ fi
 readonly aosp_forks=(
     device_common
     device_generic_goldfish
+    device_google_akita
     device_google_barbet
     device_google_barbet-sepolicy
     device_google_bluejay
@@ -167,6 +168,7 @@ declare -Ar kernel_tags=(
 readonly independent=(
     adevtool
     branding
+    device_google_akita-kernel
     device_google_bluejay-kernel
     device_google_felix-kernel
     device_google_lynx-kernel
@@ -182,6 +184,7 @@ readonly independent=(
     kernel_manifest-5.10
     kernel_manifest-5.15
     kernel_manifest-6.1
+    kernel_manifest-akita
     kernel_manifest-gs
     kernel_manifest-redbull
     kernel_manifest-shusky
@@ -286,7 +289,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-gs|kernel_manifest-redbull|kernel_manifest-shusky) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-akita|kernel_manifest-gs|kernel_manifest-redbull|kernel_manifest-shusky) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
