@@ -187,10 +187,9 @@ readonly independent=(
     kernel_manifest-5.10
     kernel_manifest-5.15
     kernel_manifest-6.1
-    kernel_manifest-akita
     kernel_manifest-gs
     kernel_manifest-redbull
-    kernel_manifest-shusky
+    kernel_manifest-zuma
     platform_external_AppCompatConfig
     platform_external_Apps
     platform_external_Auditor
@@ -292,7 +291,7 @@ for repo in ${independent[@]}; do
         git tag -d $tag_name || true
         git push origin --delete $tag_name || true
     elif [[ $action == release ]]; then
-        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-akita|kernel_manifest-gs|kernel_manifest-redbull|kernel_manifest-shusky) ]]; then
+        if [[ $repo == @(kernel_manifest-5.10|kernel_manifest-5.15|kernel_manifest-6.1|kernel_manifest-gs|kernel_manifest-redbull|kernel_manifest-zuma) ]]; then
             git checkout -B tmp
             sed -i s%refs/heads/$branch%refs/tags/$tag_name% default.xml
             git commit default.xml -m $tag_name
