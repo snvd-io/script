@@ -108,13 +108,13 @@ readonly kernels=(
     kernel_msm-extra-redbull
 
     kernel_build-gs
+    kernel_devices_google_tangorpro
     kernel_gs
     kernel_google-modules_power_reset-gs
     kernel_google-modules_wlan_bcmdhd_bcm4389
 
     kernel_devices_google_akita
     kernel_devices_google_shusky
-    kernel_devices_google_tangorpro
     kernel_google-modules_power_reset-zuma
     kernel_google-modules_soc_gs
     kernel_google-modules_uwb_qorvo_qm35
@@ -131,6 +131,7 @@ declare -Ar kernel_tags_old=(
 
     # June 2024
     [kernel_build-gs]=android-14.0.0_r0.92
+    [kernel_devices_google_tangorpro]=android-14.0.0_r0.92
     [kernel_gs]=android-14.0.0_r0.92
     [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.92
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.92
@@ -154,6 +155,7 @@ declare -Ar kernel_tags=(
 
     # June 2024
     [kernel_build-gs]=android-14.0.0_r0.92
+    [kernel_devices_google_tangorpro]=android-14.0.0_r0.92
     [kernel_gs]=android-14.0.0_r0.92
     [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.92
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.92
