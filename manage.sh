@@ -116,6 +116,7 @@ readonly kernels=(
 
     kernel_devices_google_akita
     kernel_devices_google_shusky
+    kernel_google-modules_amplifiers-zuma
     kernel_google-modules_power_reset-zuma
     kernel_google-modules_soc_gs
     kernel_google-modules_uwb_qorvo_qm35
@@ -141,6 +142,7 @@ declare -Ar kernel_tags_old=(
     # July 2024
     [kernel_devices_google_akita]=android-14.0.0_r0.109
     [kernel_devices_google_shusky]=android-14.0.0_r0.109
+    [kernel_google-modules_amplifiers-zuma]=android-14.0.0_r0.109
     [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.109
     [kernel_google-modules_soc_gs]=android-14.0.0_r0.109
     [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.109
@@ -166,6 +168,7 @@ declare -Ar kernel_tags=(
     # July 2024
     [kernel_devices_google_akita]=android-14.0.0_r0.109
     [kernel_devices_google_shusky]=android-14.0.0_r0.109
+    [kernel_google-modules_amplifiers-zuma]=android-14.0.0_r0.109
     [kernel_google-modules_power_reset-zuma]=android-14.0.0_r0.109
     [kernel_google-modules_soc_gs]=android-14.0.0_r0.109
     [kernel_google-modules_uwb_qorvo_qm35]=android-14.0.0_r0.109
