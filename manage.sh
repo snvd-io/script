@@ -110,6 +110,7 @@ readonly kernels=(
     kernel_build-gs
     kernel_devices_google_tangorpro
     kernel_gs
+    kernel_google-modules_amplifiers-gs
     kernel_google-modules_power_reset-gs
     kernel_google-modules_wlan_bcmdhd_bcm4389
 
@@ -133,6 +134,7 @@ declare -Ar kernel_tags_old=(
     [kernel_build-gs]=android-14.0.0_r0.101
     [kernel_devices_google_tangorpro]=android-14.0.0_r0.101
     [kernel_gs]=android-14.0.0_r0.101
+    [kernel_google-modules_amplifiers-gs]=android-14.0.0_r0.101
     [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.101
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.101
 
@@ -157,6 +159,7 @@ declare -Ar kernel_tags=(
     [kernel_build-gs]=android-14.0.0_r0.101
     [kernel_devices_google_tangorpro]=android-14.0.0_r0.101
     [kernel_gs]=android-14.0.0_r0.101
+    [kernel_google-modules_amplifiers-gs]=android-14.0.0_r0.101
     [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.101
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.101
 
