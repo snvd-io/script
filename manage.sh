@@ -114,6 +114,7 @@ readonly kernels=(
     kernel_google-modules_power_reset-gs
     kernel_google-modules_wlan_bcmdhd_bcm4389
 
+    kernel_build-zuma
     kernel_devices_google_akita
     kernel_devices_google_shusky
     kernel_google-modules_amplifiers-zuma
@@ -140,6 +141,7 @@ declare -Ar kernel_tags_old=(
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.101
 
     # July 2024
+    [kernel_build-zuma]=android-14.0.0_r0.109
     [kernel_devices_google_akita]=android-14.0.0_r0.109
     [kernel_devices_google_shusky]=android-14.0.0_r0.109
     [kernel_google-modules_amplifiers-zuma]=android-14.0.0_r0.109
@@ -166,6 +168,7 @@ declare -Ar kernel_tags=(
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.101
 
     # July 2024
+    [kernel_build-zuma]=android-14.0.0_r0.109
     [kernel_devices_google_akita]=android-14.0.0_r0.109
     [kernel_devices_google_shusky]=android-14.0.0_r0.109
     [kernel_google-modules_amplifiers-zuma]=android-14.0.0_r0.109
