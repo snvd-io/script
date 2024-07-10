@@ -40,6 +40,7 @@ readonly aosp_forks=(
     device_google_tangorpro
     device_google_zuma
     device_google_zuma-sepolicy
+    kernel_configs
     platform_art
     platform_bionic
     platform_bootable_recovery
