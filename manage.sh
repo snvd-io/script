@@ -203,7 +203,7 @@ readonly independent=(
     kernel_manifest-redbull
     kernel_manifest-zuma
     platform_external_AppCompatConfig
-    platform_external_Apps
+    platform_external_AppStore
     platform_external_Auditor
     platform_external_Camera
     platform_external_GmsCompatConfig
