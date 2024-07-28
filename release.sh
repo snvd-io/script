@@ -4,14 +4,15 @@ set -o errexit -o pipefail
 
 source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 
-[[ $# -eq 1 ]] || user_error "expected a single argument (device type)"
-[[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
-[[ -n $OUT ]] || user_error "expected OUT in the environment"
+[[ $# -eq 2 ]] || user_error "expected two arguments: DEVICE BUILD_NUMBER"
 
 chrt -b -p 0 $$
 
-PERSISTENT_KEY_DIR=keys/$1
-RELEASE_OUT=${OUT_DIR:-out}/release-$1-$BUILD_NUMBER
+DEVICE=$1
+BUILD_NUMBER=$2
+
+PERSISTENT_KEY_DIR=keys/$DEVICE
+RELEASE_OUT=releases/$BUILD_NUMBER/release-$DEVICE-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
 KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX)
@@ -23,9 +24,12 @@ OLD_PATH="$PATH"
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 
+TARGET_FILES=$DEVICE-target_files.zip
+TARGET_FILES_INPUT=$PWD/releases/$BUILD_NUMBER/$TARGET_FILES
+
 rm -rf $RELEASE_OUT
 mkdir -p $RELEASE_OUT
-unzip $OUT/otatools.zip -d $RELEASE_OUT
+unzip releases/$BUILD_NUMBER/$DEVICE-otatools.zip -d $RELEASE_OUT
 cd $RELEASE_OUT
 
 # reproducible key path for otacerts.zip
@@ -42,25 +46,25 @@ DEVICE=$1
 PRODUCT=$DEVICE
 
 get_radio_image() {
-    grep "require version-$1" $ANDROID_BUILD_TOP/vendor/$2 | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
+    grep "require version-$1" OTA/android-info.txt | cut -d '=' -f 2 | tr '[:upper:]' '[:lower:]'
 }
 
+unzip $TARGET_FILES_INPUT OTA/android-info.txt
+
 if [[ $DEVICE == @(akita|husky|shiba|felix|tangorpro|lynx|cheetah|panther|bluejay|raven|oriole) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
-    [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
+    BOOTLOADER=$(get_radio_image bootloader)
+    [[ $DEVICE != tangorpro ]] && RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
     DISABLE_FIPS=true
     DISABLE_DPM=true
 elif [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader google_devices/$DEVICE/firmware/android-info.txt)
-    RADIO=$(get_radio_image baseband google_devices/$DEVICE/firmware/android-info.txt)
+    BOOTLOADER=$(get_radio_image bootloader)
+    RADIO=$(get_radio_image baseband)
     DISABLE_UART=true
     ERASE_APDP=true
 else
     user_error "$DEVICE is not supported by the release script"
 fi
-
-TARGET_FILES=$DEVICE-target_files.zip
 
 AVB_PKMD="$KEY_DIR/avb_pkmd.bin"
 AVB_ALGORITHM=SHA256_RSA4096
@@ -152,13 +156,13 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
     --extra_apex_payload_key com.android.wifi.apex="$KEY_DIR/avb.pem" \
     --extra_apks com.google.pixel.camera.hal.apex="$KEY_DIR/releasekey" \
     --extra_apex_payload_key com.google.pixel.camera.hal.apex="$KEY_DIR/avb.pem" \
-    "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_FILES" $TARGET_FILES
+    $TARGET_FILES_INPUT $TARGET_FILES
 
 ota_from_target_files -k "$KEY_DIR/releasekey" "${EXTRA_OTA[@]}" $TARGET_FILES \
-    $DEVICE-ota_update-$BUILD.zip
-script/generate_metadata.py $DEVICE-ota_update-$BUILD.zip
+    $DEVICE-ota_update-$BUILD_NUMBER.zip
+script/generate_metadata.py $DEVICE-ota_update-$BUILD_NUMBER.zip
 
-img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD.zip
+img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD_NUMBER.zip
 
 source device/common/generate-factory-images-common.sh
 
