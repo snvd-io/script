@@ -177,3 +177,5 @@ if [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
 fi
 
 fastboot -S $MAX_DOWNLOAD_SIZE optimize-factory-image $DEVICE-factory-$BUILD_NUMBER.zip
+
+mv $DEVICE-factory-$BUILD_NUMBER-opt.zip $DEVICE-install-$BUILD_NUMBER.zip
