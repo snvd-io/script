@@ -122,7 +122,7 @@ readonly independent=(
     device_google_sunfish-kernel
     hardened_malloc
     kernel_manifest-coral
-    platform_external_Apps
+    platform_external_AppStore
     platform_external_Auditor
     platform_external_Camera
     platform_external_GmsCompatConfig
