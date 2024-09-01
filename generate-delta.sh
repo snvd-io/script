@@ -14,10 +14,10 @@ OLD=$2
 NEW=$3
 
 # decrypt keys in advance for improved performance and modern algorithm support
-KEY_DIR=$(mktemp -d /dev/shm/delta_keys.XXXXXXXXXX)
+KEY_DIR=$(mktemp -d /dev/shm/generate-delta.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
-script/decrypt_keys.sh "$KEY_DIR"
+script/decrypt-keys.sh "$KEY_DIR"
 
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"

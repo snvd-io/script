@@ -11,7 +11,7 @@ cd $1
 [[ "${password+defined}" = defined ]] || read -rp "Enter key passphrase (empty if none): " -s password
 echo
 
-tmp="$(mktemp -d /dev/shm/decrypt_keys.XXXXXXXXXX)"
+tmp="$(mktemp -d /dev/shm/decrypt-keys.XXXXXXXXXX)"
 trap "rm -rf \"$tmp\"" EXIT
 
 export password

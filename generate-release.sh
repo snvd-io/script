@@ -15,10 +15,10 @@ PERSISTENT_KEY_DIR=keys/$DEVICE
 RELEASE_OUT=releases/$BUILD_NUMBER/release-$DEVICE-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
-KEY_DIR=$(mktemp -d /dev/shm/release_keys.XXXXXXXXXX)
+KEY_DIR=$(mktemp -d /dev/shm/generate-release.XXXXXXXXXX)
 trap "rm -rf \"$KEY_DIR\" && rm -f \"$PWD/$RELEASE_OUT/keys\"" EXIT
 cp "$PERSISTENT_KEY_DIR"/* "$KEY_DIR"
-script/decrypt_keys.sh "$KEY_DIR"
+script/decrypt-keys.sh "$KEY_DIR"
 
 OLD_PATH="$PATH"
 export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
@@ -163,7 +163,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
 
 ota_from_target_files -k "$KEY_DIR/releasekey" "${EXTRA_OTA[@]}" $TARGET_FILES \
     $DEVICE-ota_update-$BUILD_NUMBER.zip
-script/generate_metadata.py $DEVICE-ota_update-$BUILD_NUMBER.zip
+script/generate-metadata.py $DEVICE-ota_update-$BUILD_NUMBER.zip
 
 img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD_NUMBER.zip
 
