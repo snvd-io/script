@@ -133,7 +133,7 @@ declare -Ar kernel_tags_old=(
     [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.111
     [kernel_msm-extra-redbull]=android-14.0.0_r0.111
 
-    # August 2024
+    # August 2024 tags with all September 2024 commits cherry-picked ourselves due to missing merge commits
     [kernel_build-gs]=android-14.0.0_r0.112
     [kernel_devices_google_tangorpro]=android-14.0.0_r0.112
     [kernel_gs]=android-14.0.0_r0.112
@@ -141,7 +141,7 @@ declare -Ar kernel_tags_old=(
     [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.112
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.112
 
-    # August 2024
+    # August 2024 tags with all September 2024 commits cherry-picked ourselves due to missing merge commits
     [kernel_build-zuma]=android-14.0.0_r0.118
     [kernel_devices_google_akita]=android-14.0.0_r0.118
     [kernel_devices_google_shusky]=android-14.0.0_r0.118
@@ -160,7 +160,7 @@ declare -Ar kernel_tags=(
     [kernel_msm-modules_qcacld-redbull]=android-14.0.0_r0.111
     [kernel_msm-extra-redbull]=android-14.0.0_r0.111
 
-    # August 2024
+    # August 2024 tags with all September 2024 commits cherry-picked ourselves due to missing merge commits
     [kernel_build-gs]=android-14.0.0_r0.112
     [kernel_devices_google_tangorpro]=android-14.0.0_r0.112
     [kernel_gs]=android-14.0.0_r0.112
@@ -168,7 +168,7 @@ declare -Ar kernel_tags=(
     [kernel_google-modules_power_reset-gs]=android-14.0.0_r0.112
     [kernel_google-modules_wlan_bcmdhd_bcm4389]=android-14.0.0_r0.112
 
-    # August 2024
+    # August 2024 tags with all September 2024 commits cherry-picked ourselves due to missing merge commits
     [kernel_build-zuma]=android-14.0.0_r0.118
     [kernel_devices_google_akita]=android-14.0.0_r0.118
     [kernel_devices_google_shusky]=android-14.0.0_r0.118
