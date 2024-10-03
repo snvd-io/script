@@ -13,3 +13,8 @@ readonly releases=releases/$BUILD_NUMBER
 mkdir -p $releases
 cp "$OUT/otatools.zip" "$releases/$TARGET_PRODUCT-otatools.zip"
 cp "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_PRODUCT-target_files.zip" "$releases/"
+
+#Temporary fix - to accelerate process
+cp  "$OUT/otatools.zip"   "$releases/${TARGET_PRODUCT#aosp_}-otatools.zip"
+cp "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_PRODUCT-target_files.zip" "$releases/${TARGET_PRODUCT#aosp_}-target_files.zip"
+
