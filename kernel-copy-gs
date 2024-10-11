@@ -1,0 +1,7 @@
+#!/bin/bash
+
+devices=(raviole bluejay pantah lynx tangorpro felix)
+rm -rf ${devices[@]}
+for dir in ${devices[@]}; do
+    cp -a gs $dir
+done
