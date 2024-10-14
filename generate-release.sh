@@ -60,11 +60,6 @@ if [[ $DEVICE == @(comet|komodo|caiman|tokay|akita|husky|shiba|felix|tangorpro|l
     DISABLE_UART=true
     DISABLE_FIPS=true
     DISABLE_DPM=true
-elif [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
-    BOOTLOADER=$(get_radio_image bootloader)
-    RADIO=$(get_radio_image baseband)
-    DISABLE_UART=true
-    ERASE_APDP=true
 else
     user_error "$DEVICE is not supported by the release script"
 fi
@@ -176,9 +171,6 @@ img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD_NUMBER.zip
 source device/common/generate-factory-images-common.sh
 
 MAX_DOWNLOAD_SIZE=0xf900000
-if [[ $DEVICE == @(barbet|redfin|bramble) ]]; then
-    MAX_DOWNLOAD_SIZE=0x10000000
-fi
 
 # Second arg to optimize-factory-image is the name of outer zip directory.
 # Output zip name defaults to <outer zip dir name>.zip
