@@ -9,7 +9,7 @@ source "$(dirname ${BASH_SOURCE[0]})/common.sh"
 [[ -n $BUILD_NUMBER ]] || user_error "expected BUILD_NUMBER in the environment"
 [[ -n $OUT ]] || user_error "expected OUT in the environment"
 
-readonly releases=releases/$BUILD_NUMBER
+readonly releases=experimental-releases/$BUILD_NUMBER
 mkdir -p $releases
 cp "$OUT/otatools.zip" "$releases/$TARGET_PRODUCT-otatools.zip"
 cp "$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_PRODUCT-target_files.zip" "$releases/"
