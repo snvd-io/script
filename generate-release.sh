@@ -12,7 +12,7 @@ DEVICE=$1
 BUILD_NUMBER=$2
 
 PERSISTENT_KEY_DIR=keys/$DEVICE
-RELEASE_OUT=experimental-releases/$BUILD_NUMBER/release-$DEVICE-$BUILD_NUMBER
+RELEASE_OUT=releases/$BUILD_NUMBER/release-$DEVICE-$BUILD_NUMBER
 
 # decrypt keys in advance for improved performance and modern algorithm support
 KEY_DIR=$(mktemp -d /dev/shm/generate-release.XXXXXXXXXX)
@@ -25,11 +25,11 @@ export PATH="$PWD/prebuilts/build-tools/linux-x86/bin:$PATH"
 export PATH="$PWD/prebuilts/build-tools/path/linux-x86:$PATH"
 
 TARGET_FILES=$DEVICE-target_files.zip
-TARGET_FILES_INPUT=$PWD/experimental-releases/$BUILD_NUMBER/$TARGET_FILES
+TARGET_FILES_INPUT=$PWD/releases/$BUILD_NUMBER/$TARGET_FILES
 
 rm -rf $RELEASE_OUT
 mkdir -p $RELEASE_OUT
-unzip experimental-releases/$BUILD_NUMBER/$DEVICE-otatools.zip -d $RELEASE_OUT
+unzip releases/$BUILD_NUMBER/$DEVICE-otatools.zip -d $RELEASE_OUT
 cd $RELEASE_OUT
 # remove duplicate Android.bp from unpacked otatools, otherwise they get
 # detected by soong, which breaks subsequent builds
