@@ -218,6 +218,7 @@ readonly independent=(
     kernel_common-5.10
     kernel_common-5.15
     kernel_common-6.1
+    kernel_common-6.6
     kernel_manifest-5.10
     kernel_manifest-5.15
     kernel_manifest-6.1
