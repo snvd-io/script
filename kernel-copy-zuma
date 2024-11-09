@@ -1,7 +1,4 @@
 #!/bin/bash
 
 devices=(shusky akita)
-rm -rf ${devices[@]}
-for dir in ${devices[@]}; do
-    cp -a zuma $dir
-done
+parallel 'rm -rf {} && cp -a zuma {}' ::: ${devices[@]}

@@ -1,7 +1,4 @@
 #!/bin/bash
 
 devices=(caimito comet)
-rm -rf ${devices[@]}
-for dir in ${devices[@]}; do
-    cp -a zumapro $dir
-done
+parallel 'rm -rf {} && cp -a zumapro {}' ::: ${devices[@]}
