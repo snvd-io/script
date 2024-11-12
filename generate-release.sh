@@ -164,7 +164,7 @@ sign_target_files_apks -o -d "$KEY_DIR" --avb_vbmeta_key "$KEY_DIR/avb.pem" --av
 
 ota_from_target_files -k "$KEY_DIR/releasekey" "${EXTRA_OTA[@]}" $TARGET_FILES \
     $DEVICE-ota_update-$BUILD_NUMBER.zip
-script/generate-metadata.py $DEVICE-ota_update-$BUILD_NUMBER.zip
+script/generate-metadata $DEVICE-ota_update-$BUILD_NUMBER.zip
 
 img_from_target_files $TARGET_FILES $DEVICE-img-$BUILD_NUMBER.zip
 
