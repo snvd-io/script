@@ -1,0 +1,4 @@
+#!/bin/bash
+
+devices=(microdroid-arm64 microdroid-x86_64)
+parallel 'rm -rf {} && cp -a 6.6 {}' ::: ${devices[@]}
