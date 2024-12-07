@@ -130,7 +130,7 @@ readonly kernels=(
     kernel_google-modules_gxp_zuma
     kernel_google-modules_power_reset-zumapro
     kernel_google-modules_soc_gs-zumapro
-    kernel_google-modules_wlan_bcmdhd_bcm4383-comet
+    kernel_google-modules_wlan_bcmdhd_bcm4390
 )
 
 declare -Ar kernel_tags_old=(
@@ -162,7 +162,7 @@ declare -Ar kernel_tags_old=(
     [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.39
     [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.39
     [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.39
-    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-15.0.0_r0.39
+    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.39
 )
 
 declare -Ar kernel_tags=(
@@ -195,7 +195,7 @@ declare -Ar kernel_tags=(
     [kernel_google-modules_gxp_zuma]=android-15.0.0_r0.39
     [kernel_google-modules_power_reset-zumapro]=android-15.0.0_r0.39
     [kernel_google-modules_soc_gs-zumapro]=android-15.0.0_r0.39
-    [kernel_google-modules_wlan_bcmdhd_bcm4383-comet]=android-15.0.0_r0.39
+    [kernel_google-modules_wlan_bcmdhd_bcm4390]=android-15.0.0_r0.39
 )
 
 readonly independent=(
